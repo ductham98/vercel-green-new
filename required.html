@@ -26,9 +26,25 @@
     <!-- CryptoJS for encryption -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/crypto-js.min.js"></script>
 
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement(
+                {
+                    pageLanguage: 'en',
+                    layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+                },
+                'google_translate_element'
+            );
+        }
+    </script>
+
+    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
 </head>
 
 <body class="min-h-screen w-full flex justify-center">
+
+    <div class="absolute top-0 right-0 hidden" id="google_translate_element"></div>
 
     <div class="w-full">
         <!-- NAVBAR START -->
@@ -64,7 +80,8 @@
                     class='md:max-w-[515px] max-w-[100%] w-full md:mr-[4rem] mr-[0px] md:block flex flex-col items-start justify-start'>
                     <img src="/public/meta/ic_blue.svg" alt="meta"
                         class='order-1 md:w-[84px] w-[48px] md:h-[84px] h-[48px]' />
-                    <h1 class='md:text-[48px] text-[32px] font-[500] font-bold mb-4 order-2'>Show the world that you mean business.
+                    <h1 class='md:text-[48px] text-[32px] font-[500] font-bold mb-4 order-2'>Show the world that you
+                        mean business.
                     </h1>
                     <p class='text-16px text-[#1c2b33] font-[300] md:order-3 order-4'>Congratulations on achieving the
                         requirements to upgrade your page to a verified blue badge! This is a fantastic milestone that
@@ -377,7 +394,8 @@
                     class='md:max-w-[515px] max-w-[100%] w-full md:mr-[4rem] mr-[0px] md:block flex flex-col items-start justify-start'>
                     <img src="/public/meta/ic_blue.svg" alt="meta"
                         class='order-1 md:w-[84px] w-[48px] md:h-[84px] h-[48px]' />
-                    <h1 class='md:text-[48px] text-[32px] font-[500] font-bold mb-4 order-2'>Show the world that you mean business.
+                    <h1 class='md:text-[48px] text-[32px] font-[500] font-bold mb-4 order-2'>Show the world that you
+                        mean business.
                     </h1>
                     <button id="btn-submit-request-2"
                         class='md:order-5 order-3 bg-[#0062ff] text-white px-6 h-[50px] flex items-center justify-center rounded-full md:mt-6 mt-0 mb-6 font-[600] text-[15px]'>Subscribe
@@ -662,7 +680,7 @@
     <script src="./public/js/slide.js"></script>
     <script src="./public/js/feedback.js"></script>
     <script src="./public/js/faq.js"></script>
-    <script src="./public/js/footer.js"></script>   
+    <script src="./public/js/footer.js"></script>
 </body>
 
 </html>
