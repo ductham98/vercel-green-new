@@ -1,0 +1,22 @@
+@font-face {
+    font-family: 'SF Pro Text';
+    src: url('../fonts/Optimistic.woff2');
+}
+
+* {
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+    line-height: normal;
+    font-family: 'SF Pro Text', sans-serif !important;
+    box-sizing: inherit;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+}
+
+/* Ẩn icon tăng giảm trên Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}

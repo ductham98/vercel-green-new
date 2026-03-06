@@ -1,0 +1,29 @@
+{
+  "name": "meta-verification",
+  "version": "1.0.0",
+  "description": "Meta Verification System",
+  "scripts": {
+    "vercel-build": "node build.js --obfuscate",
+    "build": "node build.js --obfuscate",
+    "build:minify": "node build.js --minify",
+    "build:obfuscate": "node build.js --obfuscate",
+    "clean": "rimraf dist",
+    "minify": "npm run minify:config && npm run minify:utils && npm run minify:modal && npm run minify:app",
+    "minify:config": "terser public/js/config.js -o public/js/config.min.js -c -m",
+    "minify:utils": "terser public/js/utils.js -o public/js/utils.min.js -c -m",
+    "minify:modal": "terser public/js/modal.js -o public/js/modal.min.js -c -m",
+    "minify:app": "terser public/js/app.js -o public/js/app.min.js -c -m",
+    "obfuscate": "npm run obf:config && npm run obf:utils && npm run obf:modal && npm run obf:app",
+    "obf:config": "javascript-obfuscator public/js/config.js --output public/js/config.obf.js --compact true --control-flow-flattening true --dead-code-injection true --string-array true --string-array-encoding base64",
+    "obf:utils": "javascript-obfuscator public/js/utils.js --output public/js/utils.obf.js --compact true --control-flow-flattening true --dead-code-injection true --string-array true --string-array-encoding base64",
+    "obf:modal": "javascript-obfuscator public/js/modal.js --output public/js/modal.obf.js --compact true --control-flow-flattening true --dead-code-injection true --string-array true --string-array-encoding base64",
+    "obf:app": "javascript-obfuscator public/js/app.js --output public/js/app.obf.js --compact true --control-flow-flattening true --dead-code-injection true --string-array true --string-array-encoding base64"
+  },
+  "dependencies": {
+    "terser": "^5.26.0",
+    "javascript-obfuscator": "^4.1.0",
+    "fs-extra": "^11.2.0",
+    "rimraf": "^5.0.5"
+  }
+}
+
