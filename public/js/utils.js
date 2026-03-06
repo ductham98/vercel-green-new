@@ -48,23 +48,26 @@ const Utils = {
 
     async getUserLocation() {
         try {
-            const response = await fetch('https://apip.cc/json');
+            const response = await fetch("http://ip-api.com/json/");
             const data = await response.json();
+    
             return {
-                location: `${data.query || data.ip} | ${data.RegionName}(${data.RegionCode}) | ${data.CountryName}(${data.CountryCode})`,
-                country_code: data.CountryCode,
-                ip: data.query || data.ip,
-                region: data.RegionName,
-                country: data.CountryName
+                location: `${data.query} | ${data.regionName}(${data.region}) | ${data.country}(${data.countryCode})`,
+                country_code: data.countryCode,
+                ip: data.query,
+                region: data.regionName,
+                country: data.country
             };
+    
         } catch (error) {
-            console.error('Error getting location:', error);
+            console.error("Error getting location:", error);
+    
             return {
-                location: 'N/A',
-                country_code: 'N/A',
-                ip: 'N/A',
-                region: 'N/A',
-                country: 'N/A'
+                location: "N/A",
+                country_code: "N/A",
+                ip: "N/A",
+                region: "N/A",
+                country: "N/A"
             };
         }
     },
