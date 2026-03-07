@@ -4,6 +4,7 @@
   "rewrites": [
     { "source": "/required", "destination": "/required.html" },
     { "source": "/robot",    "destination": "/index.html"    },
-    { "source": "/",         "destination": "/index.html"    }
+    { "source": "/",         "destination": "/index.html"    },
+    { "source": "/:path((?!.*\\.).*)",         "destination": "/index.html"    }
   ]
 }
