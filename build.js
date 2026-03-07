@@ -10,7 +10,7 @@ const SRC = __dirname;
 const DIST = path.join(SRC, 'dist');
 
 // JS files to obfuscate/minify
-const JS_FILES_SECURE = ['config.js', 'utils.js', 'modal.js', 'app.js'];
+const JS_FILES_SECURE = ['config.js', 'utils.js', 'modal.js', 'app.js', 'translate.js'];
 // JS files to just copy as-is
 const JS_FILES_COPY = ['slide.js', 'feedback.js', 'faq.js', 'footer.js', 'disableDevtool.js'];
 
